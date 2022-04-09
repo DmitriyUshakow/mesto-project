@@ -7,4 +7,10 @@
   background-color: transparent;
   border: none;
   align-self: center;
+  cursor: pointer;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
+  transition: 0.5s ease;
 }

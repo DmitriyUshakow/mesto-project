@@ -6,4 +6,10 @@
   background-image: url(../../../images/edit__button.svg);
   background-color: transparent;
   border: none;
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
+  transition: .4s ease;
 }
