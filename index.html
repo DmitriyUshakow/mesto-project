@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Проект Место</title>
-  <link rel="stylesheet" href="./pages/index.css"
+  <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/logo.svg"></img>
+        <img class="header__logo" src="./images/logo.svg" alt="Логотип с надписью Место">
       </header>
 
       <main class="content">
-        <section class="profile">
-          <img class="profile__avatar" src="./images/жак ив кусто.png">
+        <section class="profile" aria-label="секция редактирования профиля">
+          <img class="profile__avatar" src="./images/Profile-icon.png" alt="Изображение профиля">
           <article class="profile__info">
             <div class="profile__wrapper">
               <h2 class="profile__name">Жак-Ив Кусто</h2>
@@ -28,7 +28,7 @@
         <section class="cards">
           <ul class="card">
             <li class="card__item">
-              <img class="card__image" src="./images/karachaevsk.jpg">
+              <img class="card__image" src="./images/karachaevsk.jpg" alt="Здание на фоне гор">
               <div class="card__wrapper">
                 <h2 class="card__title">Карачаевск</h2>
                 <button class="card__like-button card__like-button_active"></button>
@@ -36,7 +36,7 @@
             </li>
 
             <li class="card__item">
-              <img class="card__image" src="./images/Elbrus_mountain.jpg">
+              <img class="card__image" src="./images/Elbrus_mountain.jpg" alt="Гора в далеке">
               <div class="card__wrapper">
                 <h2 class="card__title">Гора Эльбрус</h2>
                 <button class="card__like-button"></button>
@@ -44,7 +44,7 @@
             </li>
 
             <li class="card__item">
-              <img class="card__image" src="./images/dombai.jpg">
+              <img class="card__image" src="./images/dombai.jpg" alt="Горный массив">
               <div class="card__wrapper">
                 <h2 class="card__title">Домбай</h2>
                 <button class="card__like-button"></button>
@@ -52,7 +52,7 @@
             </li>
 
             <li class="card__item">
-              <img class="card__image" src="./images/Маньпупунер.jpeg">
+              <img class="card__image" src="./images/Маньпупунер.jpeg" alt="Каменные столпы">
               <div class="card__wrapper">
                 <h2 class="card__title">Маньпупунёр</h2>
                 <button class="card__like-button"></button>
@@ -60,7 +60,7 @@
             </li>
 
             <li class="card__item">
-              <img class="card__image" src="./images/Озеро Сасык.jpg">
+              <img class="card__image" src="./images/Sasik.jpg" alt="Озеро розового цвета">
               <div class="card__wrapper">
                 <h2 class="card__title">Озеро Сасык</h2>
                 <button class="card__like-button"></button>
@@ -68,7 +68,7 @@
             </li>
 
             <li class="card__item">
-              <img class="card__image" src="./images/Бархан Сарыкум.jpg">
+              <img class="card__image" src="./images/Saricum.jpg" alt="Пустынный бархан">
               <div class="card__wrapper">
                 <h2 class="card__title">Бархан Сарыкум</h2>
                 <button class="card__like-button"></button>
@@ -82,7 +82,17 @@
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
       </footer>
 
-      </main>
+      <div class="popup">
+        <div class="popup__container">
+          <form class="popup__form">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input class="popup__input" type="text" placeholder="Жак Ив Кусто">
+            <input class="popup__input" type="text" placeholder="Исследователь океана">
+            <button type="submit" class="popup__button">Сохранить</button>
+          </form>
+          <button type="button" class="popup__close-button"></button>
+        </div>    
+      </div>
     </div>
 </body>
 </html>

@@ -4,5 +4,18 @@
   display: flex;
   margin: 0 auto;
   max-width: 880px;
-  min-height: 120px;
+  align-items: center;
+}
+
+@media screen and (max-width: 915px) {
+  .profile {
+    width: 88%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .profile {
+    flex-direction: column;
+
+  }
 }

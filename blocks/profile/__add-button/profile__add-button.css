@@ -5,12 +5,23 @@
   height: 50px;
   background-image: url(../../../images/Add_Button.svg);
   background-color: transparent;
-  border: none;
-  align-self: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid #fff;;
   cursor: pointer;
+  border-radius: 2px;
+  transition: .2s;
+  outline: none;
 }
 
 .profile__add-button:hover {
   opacity: 0.6;
   transition: 0.5s ease;
+}
+
+@media screen and (max-width: 425px) {
+  .profile__add-button {
+    width: 100%;
+    max-width: 282px;
+  }
 }

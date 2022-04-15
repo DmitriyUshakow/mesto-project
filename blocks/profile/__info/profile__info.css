@@ -1,5 +1,15 @@
 .profile__info {
-    padding-left: 30px;
-    margin: auto 0;
-    margin-right: auto;
+  padding-left: 30px;
+  margin: auto 0;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 620px) {
+  .profile__info {
+    padding-left: 0;
+    margin-right: 0;
+    margin-bottom: 36px;
+    text-align: center;
+    max-width: 100%;
+  }
 }

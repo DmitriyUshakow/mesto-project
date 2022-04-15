@@ -7,3 +7,9 @@
   gap: 20px 17px;
   list-style-type: none;
 }
+
+@media screen and (max-width: 620px) {
+  .card {
+    padding: 36px 0 48px 0;
+  }
+}
