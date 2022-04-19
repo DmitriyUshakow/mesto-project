@@ -15,14 +15,14 @@
       <main class="content">
         <section class="profile" aria-label="секция редактирования профиля">
           <img class="profile__avatar" src="./images/Profile-icon.png" alt="Изображение профиля">
-          <article class="profile__info">
+          <div class="profile__info">
             <div class="profile__wrapper">
-              <h2 class="profile__name">Жак-Ив Кусто</h2>
-              <button class="profile__edit-button"></button>
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button type="button" class="profile__edit-button"></button>
             </div>
             <p class="profile__status">Исследователь океана</p>
-          </article>
-          <button class="profile__add-button"></button>
+          </div>
+          <button type="file" class="profile__add-button"></button>
         </section>
 
         <section class="cards">
@@ -31,7 +31,7 @@
               <img class="card__image" src="./images/karachaevsk.jpg" alt="Здание на фоне гор">
               <div class="card__wrapper">
                 <h2 class="card__title">Карачаевск</h2>
-                <button class="card__like-button card__like-button_active"></button>
+                <button type="button" class="card__like-button card__like-button_active"></button>
               </div>
             </li>
 
@@ -39,7 +39,7 @@
               <img class="card__image" src="./images/Elbrus_mountain.jpg" alt="Гора в далеке">
               <div class="card__wrapper">
                 <h2 class="card__title">Гора Эльбрус</h2>
-                <button class="card__like-button"></button>
+                <button type="button" class="card__like-button"></button>
               </div>
             </li>
 
@@ -47,7 +47,7 @@
               <img class="card__image" src="./images/dombai.jpg" alt="Горный массив">
               <div class="card__wrapper">
                 <h2 class="card__title">Домбай</h2>
-                <button class="card__like-button"></button>
+                <button type="button" class="card__like-button"></button>
               </div>
             </li>
 
@@ -55,7 +55,7 @@
               <img class="card__image" src="./images/Маньпупунер.jpeg" alt="Каменные столпы">
               <div class="card__wrapper">
                 <h2 class="card__title">Маньпупунёр</h2>
-                <button class="card__like-button"></button>
+                <button type="button" class="card__like-button"></button>
               </div>
             </li>
 
@@ -63,7 +63,7 @@
               <img class="card__image" src="./images/Sasik.jpg" alt="Озеро розового цвета">
               <div class="card__wrapper">
                 <h2 class="card__title">Озеро Сасык</h2>
-                <button class="card__like-button"></button>
+                <button type="button" class="card__like-button"></button>
               </div>
             </li>
 
@@ -71,7 +71,7 @@
               <img class="card__image" src="./images/Saricum.jpg" alt="Пустынный бархан">
               <div class="card__wrapper">
                 <h2 class="card__title">Бархан Сарыкум</h2>
-                <button class="card__like-button"></button>
+                <button type="button" class="card__like-button"></button>
               </div>
             </li>
           </ul>
@@ -84,11 +84,11 @@
 
       <div class="popup">
         <div class="popup__container">
-          <form class="popup__form">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input" type="text" placeholder="Жак Ив Кусто">
-            <input class="popup__input" type="text" placeholder="Исследователь океана">
-            <button type="submit" class="popup__button">Сохранить</button>
+          <form class="form">
+            <h2 class="form__title">Редактировать профиль</h2>
+            <input class="form__input" type="text" name="profile-name" placeholder="Жак Ив Кусто">
+            <input class="form__input" type="text" name="profile-status" placeholder="Исследователь океана">
+            <button type="submit" class="form__button">Сохранить</button>
           </form>
           <button type="button" class="popup__close-button"></button>
         </div>    
