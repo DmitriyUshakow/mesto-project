@@ -27,53 +27,6 @@
 
         <section class="cards">
           <ul class="card">
-            <li class="card__item">
-              <img class="card__image" src="./images/karachaevsk.jpg" alt="Здание на фоне гор">
-              <div class="card__wrapper">
-                <h2 class="card__title">Карачаевск</h2>
-                <button type="button" class="card__like-button card__like-button_active"></button>
-              </div>
-            </li>
-
-            <li class="card__item">
-              <img class="card__image" src="./images/Elbrus_mountain.jpg" alt="Гора в далеке">
-              <div class="card__wrapper">
-                <h2 class="card__title">Гора Эльбрус</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-
-            <li class="card__item">
-              <img class="card__image" src="./images/dombai.jpg" alt="Горный массив">
-              <div class="card__wrapper">
-                <h2 class="card__title">Домбай</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-
-            <li class="card__item">
-              <img class="card__image" src="./images/Маньпупунер.jpeg" alt="Каменные столпы">
-              <div class="card__wrapper">
-                <h2 class="card__title">Маньпупунёр</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-
-            <li class="card__item">
-              <img class="card__image" src="./images/Sasik.jpg" alt="Озеро розового цвета">
-              <div class="card__wrapper">
-                <h2 class="card__title">Озеро Сасык</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
-
-            <li class="card__item">
-              <img class="card__image" src="./images/Saricum.jpg" alt="Пустынный бархан">
-              <div class="card__wrapper">
-                <h2 class="card__title">Бархан Сарыкум</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li>
           </ul>
         </section>
       </main>
@@ -94,5 +47,19 @@
         </div>    
       </div>
     </div>
+
+    <!-- Template для карточек -->
+    <template id="card-template">
+      <li class="card__item">
+        <img class="card__image" src="" alt="">
+        <div class="card__wrapper">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__like-button"></button>
+        </div>
+      </li>
+    </template>
+
+    <!-- Подключаем скрипты -->
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
