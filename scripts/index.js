@@ -49,5 +49,3 @@ for (let i = 0; i < initialCards.length; i++) {
   // Вызываем функцию
   addCard();
 }
-
-
