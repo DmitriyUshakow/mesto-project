@@ -9,6 +9,6 @@
 
 ---
 
-[Ссылка на проект](/)
+[Ссылка на проект](https://dmitriyushakow.github.io/mesto-project/index.html)
 
 ---
