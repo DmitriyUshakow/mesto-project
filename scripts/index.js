@@ -68,7 +68,6 @@ function createCard(cardTitle, cardImage) {
     document.querySelector('.popup__image-title').textContent = cardTitle;
   });
 
-  
   // Результат работы функции:
   return cardElement;
 };
