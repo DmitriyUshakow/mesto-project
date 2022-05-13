@@ -46,6 +46,7 @@ function createCard(cardTitle, cardImage) {
 
   cardElement.querySelector('.card__title').textContent = cardTitle;
   cardElement.querySelector('.card__image').src = cardImage;
+  cardElement.querySelector('.card__image').alt = cardTitle;
   
   // Удаление карточки
   deleteCardButton = cardElement.querySelector('.card__delete-button');
@@ -58,6 +59,15 @@ function createCard(cardTitle, cardImage) {
   likeButton.addEventListener('click', function(evt) {
   evt.target.classList.toggle('card__like-button_active');
   });
+
+  // Попап открытия картинки
+  cardElement.querySelector('.card__image').addEventListener('click', function() {
+    document.querySelector('.popup__image').classList.toggle('popup_opened');
+    document.querySelector('.popup__image-content').src = cardImage;
+    document.querySelector('.popup__image-content').alt = cardTitle;
+    document.querySelector('.popup__image-title').textContent = cardTitle;
+  });
+
   
   // Результат работы функции:
   return cardElement;
@@ -90,6 +100,11 @@ function popupStatus(button, element) {
 popupStatus(editProfileOpenButton, editProfileForm);
 // Вызвываем функцию закрытия popup формы редактироания профиля
 popupStatus(editProfileCloseButton, editProfileForm);
+
+// Вызываем функцию закрытия окна popup изображений
+popupImage = document.querySelector('.popup__image');
+imageCloseButton = popupImage.querySelector('.popup__image-close');
+popupStatus(imageCloseButton, popupImage);
 
 // Отправка данных формы редактирования профиля
 formElement = document.querySelector('.form_edit-profile');
