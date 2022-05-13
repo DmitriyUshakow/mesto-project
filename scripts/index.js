@@ -46,13 +46,19 @@ function createCard(cardTitle, cardImage) {
 
   cardElement.querySelector('.card__title').textContent = cardTitle;
   cardElement.querySelector('.card__image').src = cardImage;
-  // Результат работы функции:
-  return cardElement;
   
   // Удаление карточки
   deleteCardButton = cardElement.querySelector('.card__delete-button');
   deleteCardButton.addEventListener('click', function(evt) {
   evt.target.closest('.card__item').remove();
+   
+  // Кнопка лайка
+  likeButton = cardElement.querySelector('.card__like-button');
+  likeButton.addEventListener('click', function(evt) {
+  evt.target.classList.toggle('..card__like-button_active');
+    
+  // Результат работы функции:
+  return cardElement;
 });
 
 };
