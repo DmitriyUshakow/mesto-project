@@ -48,6 +48,13 @@ function createCard(cardTitle, cardImage) {
   cardElement.querySelector('.card__image').src = cardImage;
   // Результат работы функции:
   return cardElement;
+  
+  // Удаление карточки
+  deleteCardButton = cardElement.querySelector('.card__delete-button');
+  deleteCardButton.addEventListener('click', function(evt) {
+  evt.target.closest('.card__item').remove();
+});
+
 };
 
 // Цикл добавления элементов массива в cardElement
@@ -120,11 +127,4 @@ cardButton.addEventListener('click', function(evt) {
   inputTitleCard.value = '';
   inputLinkCard.value = '';
   popupCard.classList.remove('popup_opened');
-});
-// Удаление карточки
-cardContainer = cardsContainer.querySelectorAll('.card__item');
-deleteCardButton = cardContainer.querySelectorAll('.card__delete-button');
-
-deleteCardButton.addEventListener('click', function(evt) {
-  evt.target.classList.toggle('.card__item').remove();
 });
