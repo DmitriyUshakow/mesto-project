@@ -122,7 +122,7 @@ cardButton.addEventListener('click', function(evt) {
   popupCard.classList.remove('popup_opened');
 });
 // Удаление карточки
-cardContainer = cardsContainer.querySelectorAll('.card___item');
+cardContainer = cardsContainer.querySelectorAll('.card__item');
 deleteCardButton = cardContainer.querySelectorAll('.card__delete-button');
 
 deleteCardButton.addEventListener('click', function(evt) {
