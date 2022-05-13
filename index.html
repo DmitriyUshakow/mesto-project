@@ -36,25 +36,25 @@
       </footer>
 
       <!-- Popup редактирования профиля -->
-      <div class="popup">
+      <div class="popup popup-edit-profile">
         <div class="popup__container">
-          <form class="form" name="profile-edit-form"> 
+          <form class="form form_edit-profile" name="profile-edit-form"> 
             <h2 class="form__title">Редактировать профиль</h2>
-            <input class="form__input" type="text" name="profile-name" placeholder="Жак Ив Кусто">
-            <input class="form__input" type="text" name="profile-status" placeholder="Исследователь океана">
+            <input class="form__input form__input-name" type="text" name="profile-name" placeholder="Жак Ив Кусто">
+            <input class="form__input form__input-job" type="text" name="profile-status" placeholder="Исследователь океана">
             <button type="submit" class="form__button">Сохранить</button>
           </form>
-          <button type="button" class="popup__close-button"></button>
+          <button type="button" class="popup__close-button popup__close-button_edit-profile"></button>
         </div>    
       </div>
 
     <!-- Popup добавления новой карточки -->
-    <div class="popup">
+    <div class="popup popup-add-new-card">
       <div class="popup__container">
-        <form class="form" name="card-edit-form"> 
+        <form class="form form_new-card" name="card-add-form"> 
           <h2 class="form__title">Новое место</h2>
-          <input class="form__input" type="text" name="place-name" placeholder="Название">
-          <input class="form__input" type="text" name="place-link" placeholder="Ссылка на картинку">
+          <input class="form__input form__input-title" type="text" name="place-name" placeholder="Название">
+          <input class="form__input form__input-link" type="text" name="place-link" placeholder="Ссылка на картинку">
           <button type="submit" class="form__button">Создать</button>
         </form>
         <button type="button" class="popup__close-button"></button>
@@ -69,6 +69,7 @@
           <h2 class="card__title"></h2>
           <button type="button" class="card__like-button"></button>
         </div>
+        <button type="button" class="card__delete-button"></button>
       </li>
     </template>
 

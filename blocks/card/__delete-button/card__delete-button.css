@@ -1,0 +1,30 @@
+.card__delete-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+  display: flex;
+  background-image: url(../../../images/Trash.svg);
+  width: 18px;
+  height: 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+  
+.card__delete-button:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+  
+@media screen and (max-width: 475px) {
+  .card__delete-button {
+    width: 18px;
+    height: 19px;
+    top: 20px;
+    right: 20px;
+  }
+}
