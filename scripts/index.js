@@ -56,7 +56,7 @@ function createCard(cardTitle, cardImage) {
   // Кнопка лайка
   likeButton = cardElement.querySelector('.card__like-button');
   likeButton.addEventListener('click', function(evt) {
-  evt.target.classList.toggle('..card__like-button_active');
+  evt.target.classList.toggle('card__like-button_active');
   });
   
   // Результат работы функции:
