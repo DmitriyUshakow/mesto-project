@@ -118,7 +118,7 @@ function createCard(cardTitleName, cardImageLink) {
   return cardElement;
 };
 
-// Добавление элементов массива в cardElement
+// Добавление элементов массива в cardContainer
 initialCards.forEach(function (item) {
   cardsContainer.append(createCard(item.name, item.link));
 });
@@ -136,7 +136,7 @@ formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 // Добавлние новых карточек через форму
 createCardForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
-  newCardByUser = createCard(inputTitleCard.value, inputLinkCard.value);
+  const newCardByUser = createCard(inputTitleCard.value, inputLinkCard.value);
   addCard(newCardByUser);
   evt.target.reset();
   closePopup(popupCard);
