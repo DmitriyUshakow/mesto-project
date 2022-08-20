@@ -50,10 +50,20 @@ const closeCardButton = popupAddCard.querySelector('.popup__close-button');
 const profileName = content.querySelector('.profile__name');
 const profileStatus = content.querySelector('.profile__status');
 
+// Общая функция c механизмом открытия окна popup
+function openPopup(popupName) {
+  popupName.classList.add('popup_opened');
+  // Слушатели нажатия Esc и клика по Overlay
+  document.addEventListener('keydown', handleHotkey);
+  document.addEventListener('click', handleOverlayClick);
+};
 
-// Функция открытия popup
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
+// Общая функция c механизмом закрытия окна popup
+function closePopup(popupName) {
+  popupName.classList.remove('popup_opened');
+  // Убираем слушатели нажатия Esc и клика по Overlay
+  document.removeEventListener('keydown', handleHotkey);
+  document.removeEventListener('click', handleOverlayClick);
 };
 
 // Прослушиватель открытия popup формы редактироания профиля
@@ -68,15 +78,28 @@ addCardButton.addEventListener('click', function () {
   openPopup(popupAddCard);
 });
 
-// Функция закрытия popup
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
+popupCloseButtons.forEach((button) => {
+  const ActivePopup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(ActivePopup));
+});
+
+//Функция закрытия окна Popup клавишей ESC
+  function handleHotkey(evt) {
+  //Новая переменная открытого окна popup
+  const activePopup = document.querySelector('.popup_opened');
+  if (evt.key == 'Escape') {
+    closePopup(activePopup);
+  };
 };
 
-popupCloseButtons.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));
-});
+//Функция закрытия окна Popup кликом на Overlay
+function handleOverlayClick(evt) {
+  //Новая переменная открытого окна popup
+  const activePopup = document.querySelector('.popup_opened');
+  if (evt.target === activePopup) {
+    closePopup(activePopup);
+  };
+};
 
 // Функция добавления карточки в DOM (В начало cardsContainer)
 function addCard(cardElement) {
