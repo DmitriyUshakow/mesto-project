@@ -40,9 +40,11 @@
         <div class="popup__container">
           <form class="form form_edit-profile" name="profile-edit-form"> 
             <h2 class="form__title">Редактировать профиль</h2>
-            <input class="form__input form__input-name" type="text" name="profile-name" placeholder="Введите имя">
-            <input class="form__input form__input-job" type="text" name="profile-status" placeholder="Введите проффесию">
-            <button type="submit" class="form__button">Сохранить</button>
+            <input class="form__input form__input-name" type="text" name="profile-name" placeholder="Введите имя" novalidate>
+            <span class="form__input-error">Вы пропустили это поле</span>
+            <input class="form__input form__input-job" type="text" name="profile-status" placeholder="Введите проффесию" novalidate>
+            <span class="form__input-error">Вы пропустили это поле</span>
+            <button type="submit" class="form__button form__button_type_error">Сохранить</button>
           </form>
           <button type="button" class="popup__close-button popup__close-button_edit-profile"></button>
         </div>    
