@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
-    <div class="page">
-      <header class="header">
+  <div class="page">
+    <header class="header">
         <img class="header__logo" src="./images/logo.svg" alt="Логотип с надписью Место">
-      </header>
+    </header>
 
-      <main class="content">
+    <main class="content">
         <section class="profile" aria-label="секция редактирования профиля">
           <img class="profile__avatar" src="./images/Profile-icon.png" alt="Изображение профиля">
           <div class="profile__info">
@@ -29,64 +29,98 @@
           <ul class="card">
           </ul>
         </section>
-      </main>
-      
-      <footer class="footer">
+    </main>
+    
+    <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
-      </footer>
-    </div>
-      <!-- Popup редактирования профиля -->
-      <div class="popup popup-edit-profile">
+    </footer>
+  </div>
+    <!-- Popup редактирования профиля -->
+  <div class="popup popup-edit-profile">
         <div class="popup__container">
-          <form class="form form_edit-profile" name="profile-edit-form"> 
+          <form class="form form_edit-profile" name="profile-edit-form" novalidate> 
             <h2 class="form__title">Редактировать профиль</h2>
-            <input class="form__input form__input-name" type="text" name="profile-name" placeholder="Введите имя" novalidate>
-            <span class="form__input-error"></span>
-            <input class="form__input form__input-job" type="text" name="profile-status" placeholder="Введите проффесию" novalidate>
-            <span class="form__input-error"></span>
-            <button type="submit" class="form__button">Сохранить</button>
+            <input 
+            id="text-input" 
+            class="form__input form__input-name" 
+            type="text" 
+            minlength="2" 
+            maxlength="40" 
+            pattern="^[a-zA-Z]+$"
+            data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+            name="profile-name" 
+            placeholder="Введите имя" 
+            novalidate>
+            <span class="text-input-error form__input-error"></span>
+            <input 
+            id="text-input" 
+            class="form__input form__input-job" 
+            type="text" 
+            minlength="2" 
+            maxlength="200" 
+            pattern="^[a-zA-Z]+$"
+            data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+            name="profile-status" 
+            placeholder="Введите проффесию" 
+            novalidate>
+            <span class="text-input-error form__input_error"></span>
+            <button type="submit" class="form__submit">Сохранить</button>
           </form>
           <button type="button" class="popup__close-button popup__close-button_edit-profile"></button>
         </div>    
-      </div>
+  </div>
 
-    <!-- Popup добавления новой карточки -->
-    <div class="popup popup-add-new-card">
+  <!-- Popup добавления новой карточки -->
+  <div class="popup popup-add-new-card">
       <div class="popup__container">
         <form class="form form_new-card" name="card-add-form"> 
           <h2 class="form__title">Новое место</h2>
-          <input class="form__input form__input-title" type="text" name="place-name" placeholder="Название">
-          <span class="form__input-error"></span>
-          <input class="form__input form__input-link" type="text" name="place-link" placeholder="Ссылка на картинку">
-          <span class="form__input-error"></span>
-          <button type="submit" class="form__button">Создать</button>
+          <input 
+          id="text-input" 
+          class="form__input form__input-title" 
+          type="text" 
+          minlength="2" 
+          maxlength="30" 
+          pattern="^[a-zA-Z]+$"
+          data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+          name="place-name" 
+          placeholder="Название">
+          <span class="text-input-error form__input-error"></span>
+          <input 
+          id="url-input" 
+          class="form__input form__input-link" 
+          type="url" 
+          name="place-link" 
+          placeholder="Ссылка на картинку">
+          <span class="url-input-error form__input-error"></span>
+          <button type="submit" class="form__submit">Создать</button>
         </form>
         <button type="button" class="popup__close-button"></button>
       </div>    
-    </div>
+  </div>
 
-    <!-- Popup открытия картинки карточки -->
-    <div class="popup popup__image">
-      <div class="popup__image-container">
-        <img class="popup__image-content" alt="" src="">
-        <h3 class="popup__image-title"></h3>
-        <button class="popup__close-button popup__image-close" type="button"></button>
+  <!-- Popup открытия картинки карточки -->
+  <div class="popup popup__image">
+    <div class="popup__image-container">
+      <img class="popup__image-content" alt="" src="">
+      <h3 class="popup__image-title"></h3>
+      <button class="popup__close-button popup__image-close" type="button"></button>
+    </div>
+  </div>
+
+  <!-- Template для карточек -->
+  <template id="card-template">
+    <li class="card__item">
+      <img class="card__image" src="" alt="">
+      <div class="card__wrapper">
+        <h2 class="card__title"></h2>
+        <button type="button" class="card__like-button"></button>
       </div>
-    </div>
+      <button type="button" class="card__delete-button"></button>
+    </li>
+  </template>
 
-    <!-- Template для карточек -->
-    <template id="card-template">
-      <li class="card__item">
-        <img class="card__image" src="" alt="">
-        <div class="card__wrapper">
-          <h2 class="card__title"></h2>
-          <button type="button" class="card__like-button"></button>
-        </div>
-        <button type="button" class="card__delete-button"></button>
-      </li>
-    </template>
-
-    <!-- Подключаем скрипты -->
-    <script src="./scripts/index.js"></script>
+  <!-- Подключаем скрипты -->
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

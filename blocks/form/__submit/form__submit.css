@@ -1,4 +1,4 @@
-.form__button {
+.form__submit{
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -13,13 +13,13 @@
   margin-bottom: 36px;
 }
   
-.form__button:hover {
+.form__submit:hover {
   opacity: .8;
   cursor: pointer;
 }
   
 @media screen and (max-width: 475px) {
-  .form__button {
+  .form__submit {
     font-size: 14px;
     line-height: 17px;
   }

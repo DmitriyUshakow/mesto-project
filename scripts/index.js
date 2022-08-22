@@ -84,7 +84,7 @@ popupCloseButtons.forEach((button) => {
 });
 
 //Функция закрытия окна Popup клавишей ESC
-  function handleHotkey(evt) {
+function handleHotkey(evt) {
   //Новая переменная открытого окна popup
   const activePopup = document.querySelector('.popup_opened');
   if (evt.key == 'Escape') {
@@ -164,3 +164,86 @@ createCardForm.addEventListener('submit', function (evt) {
   evt.target.reset();
   closePopup(popupCard);
 });
+
+// Валидация форм
+
+// Функция показывает сообщение об ошибке:
+const showInputError = (formElement, inputElement, errorMessage) => {
+  // Находим элемент ошибки внутри самой функциции
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add('form__input_type_error');
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add('form__input-error_active');
+};
+
+// Функция скрывает сообщение об ошибке:
+const hideInputError = (formElement, inputElement) => {
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove('form__input_type_error');
+  inputElement.classList.remove('form__input-error_active');
+  errorElement.textContent = '';
+};
+
+// Функция с механизмом валидации текстовых полей:
+const isValid = (formElement, inputElement) => {
+  if (inputElement.validity.patternMismatch) {
+    inputElement.setCustomValidity(inputElement.dataset.errorMessage);
+  } else {
+    inputElement.setCustomValidity('');
+  }
+
+  if (!inputElement.validity.valid) {
+    // console.log(inputElement.validionMessage)
+    showInputError(formElement, inputElement, inputElement.validationMessage)
+  } else {
+    hideInputError(formElement, inputElement);
+  };
+};
+
+// Функция проверяющая массив полей формы, и сигнализирующая о том валид ли массив полей input формы или нет
+const hasInvalidInput = (inputList) => {
+  return inputList.some((inputElement) => {
+    return !inputElement.validity.valid;
+  });
+};
+
+// Функция которая переключает состояние кнопки, при валидном или невалидном массиве input'ов формы
+const toggleButtonState = (inputList, buttonElement) => {
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add('form__submit_inactive');
+  } else {
+    buttonElement.classList.remove('form__submit_inactive');
+  };
+};
+
+// Функция валидации всех полей форм:
+const setEventListener = (formElement) => {
+  // Найдем все поля ввода внутри внутри формы, сделав из них массив:
+  const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+  // Найдем submit в форме
+  const buttonElement = formElement.querySelector('.form__submit');
+  // Сделаем кнопку submit неактивной до начала валидации input'ов
+  // Обойдем все элементы полученной коллекции:
+  inputList.forEach((inputElement) => {
+    // каждому добавим обработчик события input:
+    inputElement.addEventListener('input', () => {
+      // внутри коллбека вызовем функцию isValid, передав ей форму и проверяемый элемент:
+      isValid(formElement, inputElement);
+      // Проверка состояния inputov для переключения активности кнопки
+      toggleButtonState(inputList, buttonElement); 
+    });
+  });
+};
+
+//Обработчик всем формам
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll('.form'));
+  formList.forEach((formElement) => {
+    formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+    });
+    setEventListener(formElement)
+  });
+}
+
+enableValidation();
