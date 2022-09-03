@@ -25,6 +25,15 @@ const initialCards = [{
   }
 ];
 
+const validationSelectors = {
+  formSelector: '.popup__form', //
+  inputSelector: '.popup__input', //
+  submitButtonSelector: '.popup__button', //
+  inactiveButtonClass: 'popup__button_disabled', //
+  inputErrorClass: 'popup__input_type_error', //
+  errorClass: 'popup__error_visible' //
+}
+
 const content = document.querySelector('.content');
 const cardsContainer = content.querySelector('.card');
 const cardTemplate = document.querySelector('#card-template').content;
@@ -236,13 +245,13 @@ const setEventListener = (formElement) => {
 };
 
 //Обработчик всем формам
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll('.form'));
+const enableValidation = () => { //validationSelectors
+  const formList = Array.from(document.querySelectorAll('.form')); // validationSelectors.formSelector
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    setEventListener(formElement)
+    setEventListener(formElement) //validationSelectors
   });
 }
 
