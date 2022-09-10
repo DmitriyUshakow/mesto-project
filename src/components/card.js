@@ -32,15 +32,14 @@ const cardTemplate = document.querySelector('#card-template').content;
 const popupImage = document.querySelector('.popup__image');
 const popupImageContent = popupImage.querySelector('.popup__image-content');
 const popupImageTitle = popupImage.querySelector('.popup__image-title');
-const cardTitle = cardElement.querySelector('.card__title');
-const cardImage = cardElement.querySelector('.card__image');
-const cardLikeButton = cardElement.querySelector('.card__like-button');
-const cardDeleteButton = cardElement.querySelector('.card__delete-button');
-
 
 // Функция создания новой карточки  
 function createCard(cardTitleName, cardImageLink) {
   const cardElement = cardTemplate.querySelector('.card__item').cloneNode(true); // Разметку карточки .card__item
+  const cardTitle = cardElement.querySelector('.card__title');
+  const cardImage = cardElement.querySelector('.card__image');
+  const cardLikeButton = cardElement.querySelector('.card__like-button');
+  const cardDeleteButton = cardElement.querySelector('.card__delete-button');
 
   cardTitle.textContent = cardTitleName;
   cardImage.src = cardImageLink;
@@ -69,4 +68,4 @@ function createCard(cardTitleName, cardImageLink) {
 }
 
 export {createCard, initialCards}; 
-// Экспортируем функцию создания карточки
+// Экспортируем функцию создания карточки и массив с данными

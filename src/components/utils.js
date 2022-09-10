@@ -1,3 +1,6 @@
+import { closePopup } from "./modal";
+
+const content = document.querySelector('.content');
 const profileEditForm = document.querySelector('.popup-edit-profile');
 const profileName = content.querySelector('.profile__name');
 const profileDescription = content.querySelector('.profile__status');

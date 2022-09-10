@@ -1,4 +1,14 @@
 // Валидация форм
+// Настройки для функции валидации
+const validationSettings = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__submit',
+  inactiveButtonClass: 'form__submit_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_active'
+};
+
 
 // Функция показывает сообщение об ошибке:
 const showInputError = (formElement, inputElement, errorMessage, validationSettings) => {
@@ -79,4 +89,4 @@ const enableValidation = (validationSettings) => {
   });
 }
 
-export {enableValidation};
+export {enableValidation, validationSettings};

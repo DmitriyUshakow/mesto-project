@@ -4,17 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Проект Место</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body>
-  <div class="page">
+<body class="page">
+  <div>
     <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="Логотип с надписью Место">
+        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип с надписью Место">
     </header>
 
     <main class="content">
         <section class="profile" aria-label="секция редактирования профиля">
-          <img class="profile__avatar" src="./images/Profile-icon.png" alt="Изображение профиля">
+          <img class="profile__avatar" src="<%=require('./images/Profile-icon.png')%>" alt="Изображение профиля">
           <div class="profile__info">
             <div class="profile__wrapper">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -41,31 +40,31 @@
           <form class="form form_edit-profile" name="profile-edit-form" novalidate> 
             <h2 class="form__title">Редактировать профиль</h2>
             <input 
-            id="text-input" 
+            id="name-input" 
             class="form__input form__input-name" 
             type="text" 
             minlength="2" 
             maxlength="40" 
-            pattern="^[a-zA-Z]+$"
+            pattern="[a-zA-ZА-Яа-яёЁ \-_]+"
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
             name="profile-name" 
             placeholder="Введите имя" 
             novalidate>
-            <span class="text-input-error form__input-error">
+            <span class="name-input-error form__input-error">
             </span>
 
             <input 
-            id="text-input" 
+            id="job-name-input" 
             class="form__input form__input-job" 
             type="text" 
             minlength="2" 
             maxlength="200" 
-            pattern="^[a-zA-Z]+$"
+            pattern="[a-zA-ZА-Яа-яёЁ \-_]+"
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
             name="profile-status" 
             placeholder="Введите проффесию" 
             novalidate>
-            <span class="text-input-error form__input_error">
+            <span class="job-name-input-error form__input-error">
             </span>
             <button type="submit" class="form__submit">Сохранить</button>
           </form>
@@ -84,7 +83,7 @@
           type="text" 
           minlength="2" 
           maxlength="30" 
-          pattern="^[a-zA-Z]+$"
+          pattern="[a-zA-ZА-Яа-яёЁ \-_]+"
           data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
           name="place-name" 
           placeholder="Название">
@@ -122,8 +121,5 @@
       <button type="button" class="card__delete-button"></button>
     </li>
   </template>
-
-  <!-- Подключаем скрипты -->
-  <script src="./scripts/index.js"></script>
 </body>
 </html>
