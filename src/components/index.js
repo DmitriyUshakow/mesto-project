@@ -47,7 +47,11 @@ profileEditButton.addEventListener('click', function () {
 ProfileEditForm.addEventListener('submit', handleProfileFormSubmit);
 
 // Cлушатель открытия popup формы добавления карточки
-cardAddButton.addEventListener('click', () => openPopup(popupAddCard));
+cardAddButton.addEventListener('click', () => {
+  openPopup(popupAddCard);
+  const formSubmit = popupAddCard.querySelector('.form__submit');
+  formSubmit.classList.add('form__submit_inactive');
+});
 
 // Функция добавления карточки в DOM (В начало cardsContainer)
 function addCard(cardElement) {
