@@ -1,7 +1,7 @@
 {
   "name": "practikum",
   "version": "1.0.0",
-  "description": "",
+  "description": "---",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -26,5 +26,13 @@
   },
   "dependencies": {
     "core-js": "^3.25.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DmitriyUshakow/mesto-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DmitriyUshakow/mesto-project/issues"
+  },
+  "homepage": "https://github.com/DmitriyUshakow/mesto-project#readme"
 }
