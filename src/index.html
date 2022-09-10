@@ -49,7 +49,7 @@
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
             name="profile-name" 
             placeholder="Введите имя" 
-            novalidate>
+            required>
             <span class="name-input-error form__input-error">
             </span>
 
@@ -63,7 +63,7 @@
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
             name="profile-status" 
             placeholder="Введите проффесию" 
-            novalidate>
+            required>
             <span class="job-name-input-error form__input-error">
             </span>
             <button type="submit" class="form__submit">Сохранить</button>
@@ -86,14 +86,16 @@
           pattern="[a-zA-ZА-Яа-яёЁ \-_]+"
           data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
           name="place-name" 
-          placeholder="Название">
+          placeholder="Название"
+          required>
           <span class="text-input-error form__input-error"></span>
           <input 
           id="url-input" 
           class="form__input form__input-link" 
           type="url" 
           name="place-link" 
-          placeholder="Ссылка на картинку">
+          placeholder="Ссылка на картинку"
+          required>
           <span class="url-input-error form__input-error"></span>
           <button type="submit" class="form__submit">Создать</button>
         </form>

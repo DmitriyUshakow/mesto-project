@@ -10,8 +10,8 @@ function handleHotkey(evt) {
 
 //Функция закрытия окна Popup кликом на Overlay
 function handleOverlayClick(evt) {
-  if (evt.target.classList.contains('.popup_opened')) {
-    closePopup(activePopup);
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
   }
 }
 

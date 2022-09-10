@@ -28,7 +28,7 @@ const hideInputError = (formElement, inputElement, validationSettings) => {
 };
 
 // Функция с механизмом валидации текстовых полей:
-const isValid = (formElement, inputElement) => {
+const isValid = (formElement, inputElement, validationSettings) => {
   if (inputElement.validity.patternMismatch) {
     inputElement.setCustomValidity(inputElement.dataset.errorMessage);
   } else {
@@ -71,7 +71,7 @@ const setEventListener = (formElement, validationSettings) => {
     // каждому добавим обработчик события input:
     inputElement.addEventListener('input', () => {
       // внутри коллбека вызовем функцию isValid, передав ей форму и проверяемый элемент:
-      isValid(formElement, inputElement);
+      isValid(formElement, inputElement, validationSettings);
       // Проверка состояния inputov для переключения активности кнопки
       toggleButtonState(inputList, buttonElement, validationSettings); 
     });
