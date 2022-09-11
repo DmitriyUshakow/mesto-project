@@ -9,7 +9,7 @@ import {enableValidation, validationSettings} from './validate';
 const content = document.querySelector('.content');
 const cardsContainer = content.querySelector('.card');
 const profileEditButton = content.querySelector('.profile__edit-button');
-const ProfileEditForm = document.querySelector('.popup-edit-profile');
+const profileEditForm = document.querySelector('.popup-edit-profile');
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 const profileInputName = document.querySelector('.form__input-name');
 const profileInputDescription = document.querySelector('.form__input-job');
@@ -19,7 +19,7 @@ const cardInputTitle = newCardForm.querySelector('.form__input-title');
 const cardInputLink = newCardForm.querySelector('.form__input-link');
 const cardAddButton = content.querySelector('.profile__add-button');
 const popupAddCard = document.querySelector('.popup-add-new-card');
-const CardCreateForm = popupAddCard.querySelector('.form_new-card');
+const cardCreateForm = popupAddCard.querySelector('.form_new-card');
 const profileName = content.querySelector('.profile__name');
 const profileDescription = content.querySelector('.profile__status');
 
@@ -38,19 +38,20 @@ popupCloseButtons.forEach((button) => {
 // Работа по редактированию профиля
 // Cлушатель открытия popup формы редактироания профиля
 profileEditButton.addEventListener('click', function () {
-  openPopup(ProfileEditForm);
+  openPopup(profileEditForm);
   profileInputName.value = profileName.textContent;
   profileInputDescription.value = profileDescription.textContent;
 });
 
 // Слушатель сабмита формы редактировнаия профиля 
-ProfileEditForm.addEventListener('submit', handleProfileFormSubmit);
+profileEditForm.addEventListener('submit', handleProfileFormSubmit);
 
 // Cлушатель открытия popup формы добавления карточки
 cardAddButton.addEventListener('click', () => {
   openPopup(popupAddCard);
   const formSubmit = popupAddCard.querySelector('.form__submit');
   formSubmit.classList.add('form__submit_inactive');
+  formSubmit.setAttribute('disabled', "");
 });
 
 // Функция добавления карточки в DOM (В начало cardsContainer)
@@ -59,7 +60,7 @@ function addCard(cardElement) {
 }
 
 // слушатель сабмита модального окна создания карточки 
-CardCreateForm.addEventListener('submit', function (evt) {
+cardCreateForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
   const newCardByUser = createCard(cardInputTitle.value, cardInputLink.value);
   addCard(newCardByUser);
