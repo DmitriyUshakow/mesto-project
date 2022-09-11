@@ -1,22 +1,23 @@
 // Импортируем файл стилей
 import '../styles/index.css';
 
+import {renderCards, cardsContainer, cardInputLink, cardInputTitle, popupCard, newCard} from './api';
 import {openPopup, closePopup} from './modal';
 import {handleProfileFormSubmit} from './utils';
-import {createCard, initialCards} from './card';
+import {createCard} from './card';
 import {enableValidation, validationSettings} from './validate';
 
 const content = document.querySelector('.content');
-const cardsContainer = content.querySelector('.card');
+// const cardsContainer = content.querySelector('.card');
 const profileEditButton = content.querySelector('.profile__edit-button');
 const profileEditForm = document.querySelector('.popup-edit-profile');
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 const profileInputName = document.querySelector('.form__input-name');
 const profileInputDescription = document.querySelector('.form__input-job');
-const popupCard = document.querySelector('.popup-add-new-card');
-const newCardForm = popupCard.querySelector('.form_new-card');
-const cardInputTitle = newCardForm.querySelector('.form__input-title');
-const cardInputLink = newCardForm.querySelector('.form__input-link');
+// const popupCard = document.querySelector('.popup-add-new-card');
+// const newCardForm = popupCard.querySelector('.form_new-card');
+// const cardInputTitle = newCardForm.querySelector('.form__input-title');
+// const cardInputLink = newCardForm.querySelector('.form__input-link');
 const cardAddButton = content.querySelector('.profile__add-button');
 const popupAddCard = document.querySelector('.popup-add-new-card');
 const cardCreateForm = popupAddCard.querySelector('.form_new-card');
@@ -25,9 +26,7 @@ const profileDescription = content.querySelector('.profile__status');
 
 // Работа по добавлению карточки
 // Добавление элементов массива (Информация для карточек) в cardContainer
-initialCards.forEach(function (item) {
-  cardsContainer.append(createCard(item.name, item.link));
-});
+
 
 // Слушатель клика для всех кнопок закрытия popup
 popupCloseButtons.forEach((button) => {
@@ -62,11 +61,14 @@ function addCard(cardElement) {
 // слушатель сабмита модального окна создания карточки 
 cardCreateForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
+  newCard(); // подумать над названием
   const newCardByUser = createCard(cardInputTitle.value, cardInputLink.value);
   addCard(newCardByUser);
   evt.target.reset();
   closePopup(popupCard);
 });
 
+// Загрузим карточки с сервера
+renderCards();
 // Общая валидация
 enableValidation(validationSettings);

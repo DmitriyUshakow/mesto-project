@@ -6,6 +6,7 @@ const profileName = content.querySelector('.profile__name');
 const profileDescription = content.querySelector('.profile__status');
 const profileInputName = document.querySelector('.form__input-name');
 const profileInputDescription = document.querySelector('.form__input-job');
+const profileAvatar = document.querySelector('.profile__avatar');
 
 // Общая функция сабмита в формах
 function handleProfileFormSubmit(evt) {
@@ -15,4 +16,4 @@ function handleProfileFormSubmit(evt) {
   closePopup(profileEditForm);
 }
 
-export {handleProfileFormSubmit};
+export {handleProfileFormSubmit, profileInputName, profileDescription, profileAvatar};
