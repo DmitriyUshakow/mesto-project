@@ -12,13 +12,15 @@
 
   <main class="content">
         <section class="profile" aria-label="секция редактирования профиля">
-          <img class="profile__avatar" src="<%=require('./images/Profile-icon.png')%>" alt="Изображение профиля">
+          <picture class="profile__image">
+            <img class="profile__avatar" src="" alt="Изображение профиля">
+          </picture>
           <div class="profile__info">
             <div class="profile__wrapper">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button type="button" class="profile__edit-button"></button>
             </div>
-            <p class="profile__status">Исследователь океана</p>
+            <p class="profile__status"></p>
           </div>
           <button type="button" class="profile__add-button"></button>
         </section>
@@ -85,7 +87,7 @@
             maxlength="30" 
             pattern="[a-zA-ZА-Яа-яёЁ \-_]+"
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
-            name="place-name" 
+            name="card-name" 
             placeholder="Название"
             novalidate
             required>
@@ -94,7 +96,7 @@
             id="url-input" 
             class="form__input form__input-link" 
             type="url" 
-            name="place-link" 
+            name="card-link" 
             placeholder="Ссылка на картинку"
             novalidate
             required>
@@ -114,18 +116,20 @@
     </div>
   </div>
 
-  <div class="popup">
+  <!-- Popup редатирования аватара пользователя -->
+  <div class="popup popup-edit-avatar">
     <div class="popup__container">
-      <form class="form " name="user_avatar" novalidate> 
+      <form class="form form_edit-avatar" name="user_avatar" novalidate> 
         <h2 class="form__title">Обновить аватар</h2>
         <input 
-          class="form__input form__input_avatar_link" 
-          name="avatar_link"
+          class="form__input"
+          id="avatarURL"
+          name="avatarLink"
           type="url" 
           placeholder="Ссылка на аватар"
           required>
-        <span class="text-input-error form__input-error"></span>
-        <button type="submit" class="form__submit ">Сохранить</button>
+        <span class="form__input-error avatarURL-error"></span>
+        <button type="submit" class="form__submit">Сохранить</button>
       </form>
       <button type="button" class="popup__close-button"></button>
     </div>
@@ -137,7 +141,10 @@
       <img class="card__image" src="" alt="">
       <div class="card__wrapper">
         <h2 class="card__title"></h2>
-        <button type="button" class="card__like-button"></button>
+        <div class="card__like-section">
+          <button type="button" class="card__like-button"></button>
+          <p class="card__like-counter"></p>
+        </div>
       </div>
       <button type="button" class="card__delete-button"></button>
     </li>
