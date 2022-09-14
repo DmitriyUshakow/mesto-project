@@ -73,11 +73,9 @@ profileAvatarContainer.addEventListener('click', () => {
 avatarEditForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   renderLoading(true, evt.submitter);
-
-  console.log(avatarURL.value);
-  updateAvatar(avatarURL.value)
-    .then(() => {
-      avatar.src = avatarURL.value;
+  updateAvatar()
+    .then((res) => {
+      avatar.src = res.avatar;
       disableButton(evt.submitter);
       closePopup(popupEditAvatar);
       evt.target.reset();
