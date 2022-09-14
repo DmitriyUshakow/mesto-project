@@ -36,7 +36,6 @@ const isValid = (formElement, inputElement, validationSettings) => {
   }
 
   if (!inputElement.validity.valid) {
-    // console.log(inputElement.validionMessage)
     showInputError(formElement, inputElement, inputElement.validationMessage, validationSettings);
   } else {
     hideInputError(formElement, inputElement, validationSettings);

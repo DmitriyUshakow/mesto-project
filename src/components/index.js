@@ -43,7 +43,7 @@ const cardCreateForm = popupAddCard.querySelector('.form_new-card');
 const profileName = content.querySelector('.profile__name');
 const profileDescription = content.querySelector('.profile__status');
 const popupEditAvatar = document.querySelector('.popup-edit-avatar');
-const avatarEditForm = document.querySelector('.form_edit-avatar');
+const avatarEditForm = document.querySelector('.form__edit-avatar');
 const avatar = document.querySelector('.profile__avatar');
 const avatarURL = avatarEditForm.querySelector('.form__input');
 
@@ -66,14 +66,15 @@ function renderInitialCards(data) {
 }
 
 profileAvatarContainer.addEventListener('click', () => {
-  console.log(profileAvatarContainer);
+  const formSubmit = popupEditAvatar.querySelector('.form__submit');
   openPopup(popupEditAvatar);
+  disableButton(formSubmit);
 });
 
 avatarEditForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   renderLoading(true, evt.submitter);
-  updateAvatar()
+  updateAvatar(avatarURL.value)
     .then((res) => {
       avatar.src = res.avatar;
       disableButton(evt.submitter);
@@ -87,7 +88,6 @@ avatarEditForm.addEventListener("submit", (evt) => {
       renderLoading(false, evt.submitter, 'Сохранить');
     });
 });
-
 
 // Слушатель клика для всех кнопок закрытия popup
 popupCloseButtons.forEach((button) => {
@@ -121,7 +121,7 @@ function addCard(cardElement) {
 // слушатель сабмита модального окна создания карточки 
 cardCreateForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
-  renderLoading(true, evt.submitter, 'Сохранить');
+  renderLoading(true, evt.submitter);
   newCard(cardInputTitle.value, cardInputLink.value)
     .then((result) => {
       const myCard = createCard(result.name, result.link,  result.likes, result._id, result.owner,userId);

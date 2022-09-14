@@ -18,21 +18,22 @@ export function renderLoading(isLoading, button, buttonText) {
   }
 }
 
-// Общая функция сабмита в формах
+// Функция сабмита в профиле 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
+  
   renderLoading(true, evt.submitter);
-  newInfo()
+  newInfo(profileInputName.value, profileInputDescription.value)
   .then((res) => {
     profileName.textContent = res.name;
-    profileDescription.textContent = res.avatar;
+    profileDescription.textContent = res.about;
     closePopup(profileEditForm);
   })
   .catch((err) => {
     console.log(err);
   })
   .finally(() => {
-    renderLoading(false, evt.submitter);
+    renderLoading(false, evt.submitter, 'Сохранить');
   });
 };
 
