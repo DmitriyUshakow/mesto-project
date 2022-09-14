@@ -86,7 +86,7 @@ avatarEditForm.addEventListener("submit", (evt) => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, evt.submitter);
+      renderLoading(false, evt.submitter, 'Сохранить');
     });
 });
 
