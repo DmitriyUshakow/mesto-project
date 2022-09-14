@@ -10,9 +10,9 @@ const profileInputDescription = document.querySelector('.form__input-job');
 const profileAvatarContainer = document.querySelector('.profile__image');
 
 // изменение кнопки во время загрузки
-export function renderLoading(isLoading, button, buttonText = "Сохранить") {
+export function renderLoading(isLoading, button, buttonText = "Сохранить", buttonTextOnLoad) {
   if (isLoading) {
-    button.textContent = "Сохранение...";
+    button.textContent = buttonTextOnLoad;
   } else {
     button.textContent = buttonText;
   }
