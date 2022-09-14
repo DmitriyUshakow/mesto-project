@@ -22,7 +22,7 @@ export function renderLoading(isLoading, button, buttonText) {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   renderLoading(true, evt.submitter);
-  newInfo(profileInputName.value, profileInputDescription.value)
+  newInfo()
   .then((res) => {
     profileName.textContent = res.name;
     profileDescription.textContent = res.avatar;
