@@ -54,7 +54,7 @@ Promise.all([renderInfo(), renderCards()])
     profileName.textContent = userData.name;
     profileDescription.textContent = userData.about;
     avatar.src = userData.avatar;
-    userId = userData._id; //?
+    userId = userData._id;
     renderInitialCards(data);
   })
   .catch((error) => console.log(`Ошибка при рендере карточек и информации профиля${error}`));
@@ -123,12 +123,11 @@ function addCard(cardElement) {
 // слушатель сабмита модального окна создания карточки 
 cardCreateForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
-  renderLoading(true, evt.submitter);
+  renderLoading(true, evt.submitter, 'Сохранить');
   newCard(cardInputTitle.value, cardInputLink.value)
     .then((result) => {
       const myCard = createCard(result.name, result.link,  result.likes, result._id, result.owner,userId);
       addCard(myCard);
-      disableButton(evt.submitter);
       closePopup(popupCard);
       evt.target.reset(popupCard);
     })
@@ -136,7 +135,7 @@ cardCreateForm.addEventListener('submit', function (evt) {
       console.log(`Ошибка при отправке данных карточки  ${err}`);
     })
     .finally(() => {
-      renderLoading(false, evt.submitter);
+      renderLoading(false, evt.submitter, 'Cоздать');
     });
 });
 
