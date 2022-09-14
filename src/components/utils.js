@@ -23,9 +23,9 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   renderLoading(true, evt.submitter);
   newInfo(profileInputName.value, profileInputDescription.value)
-  .then(() => {
-    profileName.textContent = profileInputName.value;
-    profileDescription.textContent = profileInputDescription.value;
+  .then((res) => {
+    profileName.textContent = res.name;
+    profileDescription.textContent = res.avatar;
     closePopup(profileEditForm);
   })
   .catch((err) => {
