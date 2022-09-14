@@ -49,8 +49,6 @@ const avatarURL = avatarEditForm.querySelector('.form__input');
 
 export let userId ="";
 
-// Как только придет информация от сервера по renderInfo и RenderCard
-// 
 Promise.all([renderInfo(), renderCards()])
   .then(([userData, data]) => {
     profileName.textContent = userData.name;
