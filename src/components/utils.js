@@ -10,29 +10,30 @@ const profileInputDescription = document.querySelector('.form__input-job');
 const profileAvatarContainer = document.querySelector('.profile__image');
 
 // изменение кнопки во время загрузки
-export function renderLoading(isLoading, button, buttonText = "Сохранить") {
+export function renderLoading(isLoading, button, buttonText) {
   if (isLoading) {
-    button.textContent = "Сохранение...";
+    button.textContent = 'Сохранение...';
   } else {
     button.textContent = buttonText;
   }
 }
 
-// Общая функция сабмита в формах
+// Функция сабмита в профиле 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
+  
   renderLoading(true, evt.submitter);
   newInfo(profileInputName.value, profileInputDescription.value)
-  .then(() => {
-    profileName.textContent = profileInputName.value;
-    profileDescription.textContent = profileInputDescription.value;
+  .then((res) => {
+    profileName.textContent = res.name;
+    profileDescription.textContent = res.about;
     closePopup(profileEditForm);
   })
   .catch((err) => {
     console.log(err);
   })
   .finally(() => {
-    renderLoading(false, evt.submitter);
+    renderLoading(false, evt.submitter, 'Сохранить');
   });
 };
 

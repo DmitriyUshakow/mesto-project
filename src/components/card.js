@@ -41,7 +41,6 @@ function createCard(cardTitleName, cardImageLink, likes, _id, owner, userId) {
   cardDeleteButton.addEventListener("click", (evt) => {
     deleteCard(_id)
       .then(() => {
-        console.log(evt.target.closest(".card__item"));
         evt.target.closest(".card__item").remove();
       })
       .catch((err) => {

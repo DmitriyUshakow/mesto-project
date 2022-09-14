@@ -1,5 +1,7 @@
 // Здесь общие функции открытия и закрытия модальных окон с их колбеками
 //Функция закрытия окна Popup клавишей ESC
+import { disableButton } from "./utils";
+
 function handleHotkey(evt) {
   if (evt.key == 'Escape') {
     const activePopup = document.querySelector('.popup_opened');

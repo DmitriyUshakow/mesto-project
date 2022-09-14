@@ -43,7 +43,7 @@ const cardCreateForm = popupAddCard.querySelector('.form_new-card');
 const profileName = content.querySelector('.profile__name');
 const profileDescription = content.querySelector('.profile__status');
 const popupEditAvatar = document.querySelector('.popup-edit-avatar');
-const avatarEditForm = document.querySelector('.form_edit-avatar');
+const avatarEditForm = document.querySelector('.form__edit-avatar');
 const avatar = document.querySelector('.profile__avatar');
 const avatarURL = avatarEditForm.querySelector('.form__input');
 
@@ -54,7 +54,7 @@ Promise.all([renderInfo(), renderCards()])
     profileName.textContent = userData.name;
     profileDescription.textContent = userData.about;
     avatar.src = userData.avatar;
-    userId = userData._id; //?
+    userId = userData._id;
     renderInitialCards(data);
   })
   .catch((error) => console.log(`Ошибка при рендере карточек и информации профиля${error}`));
@@ -66,18 +66,17 @@ function renderInitialCards(data) {
 }
 
 profileAvatarContainer.addEventListener('click', () => {
-  console.log(profileAvatarContainer);
+  const formSubmit = popupEditAvatar.querySelector('.form__submit');
   openPopup(popupEditAvatar);
+  disableButton(formSubmit);
 });
 
 avatarEditForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   renderLoading(true, evt.submitter);
-
-  console.log(avatarURL.value);
   updateAvatar(avatarURL.value)
-    .then(() => {
-      avatar.src = avatarURL.value;
+    .then((res) => {
+      avatar.src = res.avatar;
       disableButton(evt.submitter);
       closePopup(popupEditAvatar);
       evt.target.reset();
@@ -86,10 +85,9 @@ avatarEditForm.addEventListener("submit", (evt) => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, evt.submitter);
+      renderLoading(false, evt.submitter, 'Сохранить');
     });
 });
-
 
 // Слушатель клика для всех кнопок закрытия popup
 popupCloseButtons.forEach((button) => {
@@ -128,7 +126,6 @@ cardCreateForm.addEventListener('submit', function (evt) {
     .then((result) => {
       const myCard = createCard(result.name, result.link,  result.likes, result._id, result.owner,userId);
       addCard(myCard);
-      disableButton(evt.submitter);
       closePopup(popupCard);
       evt.target.reset(popupCard);
     })
@@ -136,7 +133,7 @@ cardCreateForm.addEventListener('submit', function (evt) {
       console.log(`Ошибка при отправке данных карточки  ${err}`);
     })
     .finally(() => {
-      renderLoading(false, evt.submitter);
+      renderLoading(false, evt.submitter, 'Cоздать');
     });
 });
 
