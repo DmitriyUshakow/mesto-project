@@ -6,20 +6,21 @@
   <title>Проект Место</title>
 </head>
 <body class="page">
-  <div>
-    <header class="header">
-        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип с надписью Место">
-    </header>
+  <header class="header">
+      <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип с надписью Место">
+  </header>
 
-    <main class="content">
+  <main class="content">
         <section class="profile" aria-label="секция редактирования профиля">
-          <img class="profile__avatar" src="<%=require('./images/Profile-icon.png')%>" alt="Изображение профиля">
+          <picture class="profile__image">
+            <img class="profile__avatar" src="" alt="Изображение профиля">
+          </picture>
           <div class="profile__info">
             <div class="profile__wrapper">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button type="button" class="profile__edit-button"></button>
             </div>
-            <p class="profile__status">Исследователь океана</p>
+            <p class="profile__status"></p>
           </div>
           <button type="button" class="profile__add-button"></button>
         </section>
@@ -28,13 +29,12 @@
           <ul class="card">
           </ul>
         </section>
-    </main>
-    
-    <footer class="footer">
+  </main>
+  
+  <footer class="footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
-    </footer>
-  </div>
-    <!-- Popup редактирования профиля -->
+  </footer>
+  <!-- Popup редактирования профиля -->
   <div class="popup popup-edit-profile">
         <div class="popup__container">
           <form class="form form_edit-profile" name="profile-edit-form" novalidate> 
@@ -78,6 +78,7 @@
         <form class="form form_new-card" name="card-add-form" novalidate> 
           <h2 class="form__title">Новое место</h2>
           <input 
+<<<<<<< HEAD
           id="text-input" 
           class="form__input form__input-title" 
           type="text" 
@@ -96,6 +97,28 @@
           name="place-link" 
           placeholder="Ссылка на картинку"
           required>
+=======
+            id="text-input" 
+            class="form__input form__input-title" 
+            type="text" 
+            minlength="2" 
+            maxlength="30" 
+            pattern="[a-zA-ZА-Яа-яёЁ \-_]+"
+            data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"
+            name="card-name" 
+            placeholder="Название"
+            novalidate
+            required>
+            <span class="text-input-error form__input-error"></span>
+            <input 
+            id="url-input" 
+            class="form__input form__input-link" 
+            type="url" 
+            name="card-link" 
+            placeholder="Ссылка на картинку"
+            novalidate
+            required>
+>>>>>>> feature/api
           <span class="url-input-error form__input-error"></span>
           <button type="submit" class="form__submit ">Создать</button>
         </form>
@@ -112,13 +135,35 @@
     </div>
   </div>
 
+  <!-- Popup редатирования аватара пользователя -->
+  <div class="popup popup-edit-avatar">
+    <div class="popup__container">
+      <form class="form form_edit-avatar" name="user_avatar" novalidate> 
+        <h2 class="form__title">Обновить аватар</h2>
+        <input 
+          class="form__input"
+          id="avatarURL"
+          name="avatarLink"
+          type="url" 
+          placeholder="Ссылка на аватар"
+          required>
+        <span class="form__input-error avatarURL-error"></span>
+        <button type="submit" class="form__submit">Сохранить</button>
+      </form>
+      <button type="button" class="popup__close-button"></button>
+    </div>
+  </div>
+  
   <!-- Template для карточек -->
   <template id="card-template">
     <li class="card__item">
       <img class="card__image" src="" alt="">
       <div class="card__wrapper">
         <h2 class="card__title"></h2>
-        <button type="button" class="card__like-button"></button>
+        <div class="card__like-section">
+          <button type="button" class="card__like-button"></button>
+          <p class="card__like-counter"></p>
+        </div>
       </div>
       <button type="button" class="card__delete-button"></button>
     </li>
