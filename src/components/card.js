@@ -82,13 +82,13 @@ function dislikeThisCard(cardLikeButton, _id, cardLikeCounter) {
 
 // Функция проверки состояния лайка
 const checkLike = (cardElement, _id, cardLikeCounter) => () => {
-    const cardLikeButton = cardElement.querySelector('.card__like-button');
-    if (cardLikeButton.classList.contains('card__like-button_active')) {
-      dislikeThisCard(cardLikeButton, _id, cardLikeCounter);
-    } else {
-      likeThisCard(cardLikeButton, _id, cardLikeCounter);
-    }
+  const cardLikeButton = cardElement.querySelector('.card__like-button');
+  if (cardLikeButton.classList.contains('card__like-button_active')) {
+    dislikeThisCard(cardLikeButton, _id, cardLikeCounter);
+  } else {
+    likeThisCard(cardLikeButton, _id, cardLikeCounter);
   }
+ }
 
 export {createCard}; 
 // Экспортируем функцию создания карточки и массив с данными
